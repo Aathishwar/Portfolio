@@ -205,7 +205,6 @@ Ready to collaborate or discuss opportunities?
 - 📧 **Email**: aathishwar885@gmail.com
 - 💼 **LinkedIn**: [Aathishwar V](https://www.linkedin.com/in/aathishwar-v/)
 - 🐙 **GitHub**: [Aathishwar](https://github.com/Aathishwar)
-- 📱 **WhatsApp**: [+91 8072222395](http://Wa.me/+918072222395)
 
 ---
 
