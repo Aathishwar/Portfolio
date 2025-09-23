@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { Moon, Sun } from "lucide-react";
 import { useEffect } from "react";
+import AnimatedThemeToggle from "@/components/ui/animated-theme-toggle";
 
 interface NavigationProps {
   activeSection: string;
@@ -87,31 +87,19 @@ export default function Navigation({ activeSection, onSectionChange }: Navigatio
               </Button>
             ))}
             {/* Theme Toggle Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-muted-foreground hover:text-foreground hover:bg-muted"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              title="Toggle theme"
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            <AnimatedThemeToggle 
+              isDark={isDark} 
+              onToggle={toggleTheme}
+            />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-1">
             {/* Theme Toggle Button for Mobile */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-muted-foreground hover:text-foreground hover:bg-muted"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              title="Toggle theme"
-            >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            <AnimatedThemeToggle 
+              isDark={isDark} 
+              onToggle={toggleTheme}
+            />
             <Button
               variant="ghost"
               size="icon"

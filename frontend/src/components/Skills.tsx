@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function Skills() {
+  const sparkColor = useSparkColor();
+  
   const skillCategories = [
     {
       title: "Programming Languages",
@@ -58,29 +62,38 @@ export default function Skills() {
               viewport={{ once: true }}
               transition={{ delay: categoryIndex * 0.2 }}
             >
-              <Card className="h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg">{category.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: (categoryIndex * 0.2) + (skillIndex * 0.1) }}
-                      className="space-y-2"
-                    >
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium">{skill.name}</span>
-                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <Progress value={skill.level} className="h-2" />
-                    </motion.div>
-                  ))}
-                </CardContent>
-              </Card>
+              <ClickSpark
+                sparkColor={sparkColor}
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}
+                extraScale={1}
+              >
+                <Card className="h-full">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{category.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: (categoryIndex * 0.2) + (skillIndex * 0.1) }}
+                        className="space-y-2"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="text-sm font-medium">{skill.name}</span>
+                          <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                        </div>
+                        <Progress value={skill.level} className="h-2" />
+                      </motion.div>
+                    ))}
+                  </CardContent>
+                </Card>
+              </ClickSpark>
             </motion.div>
           ))}
         </div>

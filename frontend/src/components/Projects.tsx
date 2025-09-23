@@ -3,8 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function Projects() {
+  const sparkColor = useSparkColor();
+  
   const projects = [
     {
       title: "TaskFlow - Multi-User Task Management System",
@@ -106,57 +110,66 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <Badge 
-                      variant="secondary" 
-                      className={categoryColors[project.category as keyof typeof categoryColors]}
-                    >
-                      {project.category}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs">
-                        {tech}
+              <ClickSpark
+                sparkColor={sparkColor}
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}
+                extraScale={1}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <Badge 
+                        variant="secondary" 
+                        className={categoryColors[project.category as keyof typeof categoryColors]}
+                      >
+                        {project.category}
                       </Badge>
-                    ))}
-                  </div>
+                    </div>
+                    <CardTitle className="text-lg leading-tight group-hover:text-primary transition-colors">
+                      {project.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.map((tech) => (
+                        <Badge key={tech} variant="outline" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
 
-                  <div className="flex gap-2 pt-2">
-                    <Button size="sm" variant="outline" className="cursor-pointer" asChild>
-                      <a 
-                        href={project.githubUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="h-4 w-4 mr-1" />
-                        Code
-                      </a>
-                    </Button>
-                    <Button size="sm" variant="outline" className="cursor-pointer" asChild>
-                      <a 
-                        href={project.demoUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Demo
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                    <div className="flex gap-2 pt-2">
+                      <Button size="sm" variant="outline" className="cursor-pointer" asChild>
+                        <a 
+                          href={project.githubUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="h-4 w-4 mr-1" />
+                          Code
+                        </a>
+                      </Button>
+                      <Button size="sm" variant="outline" className="cursor-pointer" asChild>
+                        <a 
+                          href={project.demoUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-1" />
+                          Demo
+                        </a>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </ClickSpark>
             </motion.div>
           ))}
         </div>
