@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Calendar } from "lucide-react";
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function Certifications() {
+  const sparkColor = useSparkColor();
+  
   const certifications = [
     {
       title: "CCNA: Introduction to Networks",
@@ -88,29 +92,38 @@ export default function Certifications() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <Award className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                    <Badge 
-                      variant="secondary" 
-                      className={categoryColors[cert.category as keyof typeof categoryColors]}
-                    >
-                      {cert.category}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-lg leading-tight">{cert.title}</CardTitle>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4" />
-                    <span>{cert.issuer} - {cert.year}</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {cert.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <ClickSpark
+                sparkColor={sparkColor}
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}
+                extraScale={1}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <Award className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                      <Badge 
+                        variant="secondary" 
+                        className={categoryColors[cert.category as keyof typeof categoryColors]}
+                      >
+                        {cert.category}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-lg leading-tight">{cert.title}</CardTitle>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="h-4 w-4" />
+                      <span>{cert.issuer} - {cert.year}</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {cert.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </ClickSpark>
             </motion.div>
           ))}
         </div>

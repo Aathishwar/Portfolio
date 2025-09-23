@@ -7,8 +7,12 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function Contact() {
+  const sparkColor = useSparkColor();
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -176,61 +180,70 @@ This is an automated response. Please do not reply to this email directly.`
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Card>
-              <CardHeader>
-                <CardTitle>Send a Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Input
-                        name="name"
-                        placeholder="Your Name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
+            <ClickSpark
+              sparkColor={sparkColor}
+              sparkSize={10}
+              sparkRadius={15}
+              sparkCount={8}
+              duration={400}
+              extraScale={1}
+            >
+              <Card>
+                <CardHeader>
+                  <CardTitle>Send a Message</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <Input
+                          name="name"
+                          placeholder="Your Name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Input
+                          name="email"
+                          type="email"
+                          placeholder="Your Email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <Input
-                        name="email"
-                        type="email"
-                        placeholder="Your Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <Input
-                    name="phone"
-                    placeholder="Contact Number (Optional)"
-                    value={formData.phone}
-                    onChange={handleChange}
-                  />
-                  
-                  <Textarea
-                    name="message"
-                    placeholder="Your Message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                  />
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full cursor-pointer" 
-                    disabled={isSubmitting}
-                  >
-                    <Send className="mr-2 h-4 w-4" />
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+                    
+                    <Input
+                      name="phone"
+                      placeholder="Contact Number (Optional)"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                    
+                    <Textarea
+                      name="message"
+                      placeholder="Your Message"
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    />
+                    
+                    <Button 
+                      type="submit" 
+                      className="w-full cursor-pointer" 
+                      disabled={isSubmitting}
+                    >
+                      <Send className="mr-2 h-4 w-4" />
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </ClickSpark>
           </motion.div>
         </div>
       </div>

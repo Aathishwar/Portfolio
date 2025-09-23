@@ -9,9 +9,12 @@ import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function Landing() {
   const [activeSection, setActiveSection] = useState("home");
+  const sparkColor = useSparkColor();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,21 +46,31 @@ export default function Landing() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="min-h-screen"
+    <ClickSpark
+      sparkColor={sparkColor}
+      sparkSize={10}
+      sparkRadius={15}
+      sparkCount={8}
+      duration={400}
+      extraScale={1}
+      easing="ease-out"
     >
-      <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
-      <Hero onContactClick={scrollToContact} />
-      <About />
-      <Skills />
-      <Certifications />
-      <Projects />
-      <Education />
-      <Contact />
-      <Footer />
-    </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="min-h-screen"
+      >
+        <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
+        <Hero onContactClick={scrollToContact} />
+        <About />
+        <Skills />
+        <Certifications />
+        <Projects />
+        <Education />
+        <Contact />
+        <Footer />
+      </motion.div>
+    </ClickSpark>
   );
 }

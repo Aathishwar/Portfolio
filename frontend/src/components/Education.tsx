@@ -2,8 +2,12 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Calendar, Award } from "lucide-react";
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function Education() {
+  const sparkColor = useSparkColor();
+  
   const education = [
     {
       degree: "B.E Computer Science and Engineering (AIML)",
@@ -65,36 +69,45 @@ export default function Education() {
                   <div className="absolute left-6 top-6 w-4 h-4 bg-primary rounded-full border-4 border-background hidden md:block"></div>
                   
                   <div className="md:ml-20">
-                    <Card className="hover:shadow-lg transition-shadow">
-                      <CardHeader className="pb-3">
-                        <div className="flex items-start justify-between gap-4 mb-2">
+                    <ClickSpark
+                      sparkColor={sparkColor}
+                      sparkSize={10}
+                      sparkRadius={15}
+                      sparkCount={8}
+                      duration={400}
+                      extraScale={1}
+                    >
+                      <Card className="hover:shadow-lg transition-shadow">
+                        <CardHeader className="pb-3">
+                          <div className="flex items-start justify-between gap-4 mb-2">
+                            <div className="flex items-center gap-2">
+                              <GraduationCap className="h-6 w-6 text-primary" />
+                              <Badge 
+                                variant={edu.status === 'current' ? 'default' : 'secondary'}
+                                className="cursor-pointer"
+                              >
+                                {edu.status === 'current' ? 'Current' : 'Completed'}
+                              </Badge>
+                            </div>
+                            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                              <Calendar className="h-4 w-4" />
+                              <span>{edu.period}</span>
+                            </div>
+                          </div>
+                          <CardTitle className="text-xl">{edu.degree}</CardTitle>
+                          <p className="text-primary font-medium">{edu.institution}</p>
+                        </CardHeader>
+                        <CardContent className="space-y-3">
                           <div className="flex items-center gap-2">
-                            <GraduationCap className="h-6 w-6 text-primary" />
-                            <Badge 
-                              variant={edu.status === 'current' ? 'default' : 'secondary'}
-                              className="cursor-pointer"
-                            >
-                              {edu.status === 'current' ? 'Current' : 'Completed'}
-                            </Badge>
+                            <Award className="h-4 w-4 text-primary" />
+                            <span className="font-medium text-primary">{edu.grade}</span>
                           </div>
-                          <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                            <Calendar className="h-4 w-4" />
-                            <span>{edu.period}</span>
-                          </div>
-                        </div>
-                        <CardTitle className="text-xl">{edu.degree}</CardTitle>
-                        <p className="text-primary font-medium">{edu.institution}</p>
-                      </CardHeader>
-                      <CardContent className="space-y-3">
-                        <div className="flex items-center gap-2">
-                          <Award className="h-4 w-4 text-primary" />
-                          <span className="font-medium text-primary">{edu.grade}</span>
-                        </div>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {edu.description}
-                        </p>
-                      </CardContent>
-                    </Card>
+                          <p className="text-muted-foreground leading-relaxed">
+                            {edu.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </ClickSpark>
                   </div>
                 </motion.div>
               ))}

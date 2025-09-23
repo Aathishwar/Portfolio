@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
+import { SplitText } from "@/components/ui/SplitText";
+import { TextType } from "@/components/ui/TextType";
 
 interface HeroProps {
   onContactClick: () => void;
 }
 
 export default function Hero({ onContactClick }: HeroProps) {
+  const sparkColor = useSparkColor();
+  
   const socialLinks = [
     { icon: "bxl-linkedin", href: "https://www.linkedin.com/in/aathishwar-v/", label: "LinkedIn" },
     { icon: "bxl-instagram", href: "https://instagram.com/aathi._.13?igshid=NzZlODBkYWE4Ng==", label: "Instagram" },
@@ -25,63 +31,90 @@ export default function Hero({ onContactClick }: HeroProps) {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="text-primary text-2xl font-semibold"
             >
-              Hi, I'm
-            </motion.p>
+              <SplitText 
+                text="Hi, I'm" 
+                delay={0.5}
+                duration={0.8}
+                stagger={0.08}
+              />
+            </motion.div>
             
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
               className="text-4xl md:text-6xl font-bold tracking-tight"
             >
-              {/* First name on first line */}
-              <span className="block">AATHISHWAR</span>
-              {/* Last name below, slightly to the right */}
+              {/* Simple fade-in for the stylized name layout */}
+              <span className="block">AATHISHWAR </span>
               <span className="block text-primary ml-6">VARATHARAJ</span>
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 2.2 }}
               className="text-xl text-muted-foreground max-w-lg"
             >
-              Undergraduate student specializing in Artificial Intelligence and Machine Learning, with practical experience in Docker,
-              Databases, and Linux. Currently expanding expertise in Cybersecurity while pursuing a B.E. in Computer Science and Engineering (AIML) at KPRIET.
-                </motion.p>
+              <TextType
+                text="Undergraduate student specializing in Artificial Intelligence and Machine Learning, with practical experience in Docker, Databases, and Linux. Currently expanding expertise in Cybersecurity while pursuing a B.E. in Computer Science and Engineering (AIML) at KPRIET."
+                delay={2.5}
+                typeSpeed={0.03}
+                showCursor={true}
+              />
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              transition={{ delay: 8.0 }}
+              className="flex flex-row gap-4 items-center"
             >
-              <Button onClick={onContactClick} size="lg" className="cursor-pointer">
-                Get In Touch
-              </Button>
-              <Button variant="outline" size="lg" className="cursor-pointer" asChild>
-                <a 
-                  href="https://drive.google.com/file/d/1MDcMfuPs8ZP1BzYDEqxekt4Av3q9Hk7T/view?usp=drive_link" 
-                  download="Aathishwar_V_CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Download className="mr-2 h-4 w-4" />
-                  Download CV
-                </a>
-              </Button>
+              <ClickSpark
+                sparkColor={sparkColor}
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}
+                extraScale={1}
+              >
+                <Button onClick={onContactClick} size="lg" className="cursor-pointer">
+                  Get In Touch
+                </Button>
+              </ClickSpark>
+              
+              <ClickSpark
+                sparkColor={sparkColor}
+                sparkSize={10}
+                sparkRadius={15}
+                sparkCount={8}
+                duration={400}
+                extraScale={1}
+              >
+                <Button variant="outline" size="lg" className="cursor-pointer" asChild>
+                  <a 
+                    href="https://drive.google.com/file/d/1MDcMfuPs8ZP1BzYDEqxekt4Av3q9Hk7T/view?usp=drive_link" 
+                    download="Aathishwar_V_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    Download CV
+                  </a>
+                </Button>
+              </ClickSpark>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 8.5 }}
               className="flex gap-4 pt-4"
             >
               {socialLinks.map((social, index) => (

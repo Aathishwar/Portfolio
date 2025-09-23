@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Code, Shield, Brain, Globe } from "lucide-react";
+import ClickSpark from "@/components/ui/ClickSpark";
+import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function About() {
+  const sparkColor = useSparkColor();
+  
   const highlights = [
     {
       icon: Code,
@@ -81,13 +85,22 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
-                  <CardContent className="p-6 text-center">
-                    <item.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
+                <ClickSpark
+                  sparkColor={sparkColor}
+                  sparkSize={10}
+                  sparkRadius={15}
+                  sparkCount={8}
+                  duration={400}
+                  extraScale={1}
+                >
+                  <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
+                    <CardContent className="p-6 text-center">
+                      <item.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                      <h3 className="font-semibold mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.description}</p>
+                    </CardContent>
+                  </Card>
+                </ClickSpark>
               </motion.div>
             ))}
           </motion.div>
