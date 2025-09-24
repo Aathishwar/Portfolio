@@ -41,7 +41,7 @@ export default function Footer() {
                 <a
                   key={link}
                   href={`#${link.toLowerCase()}`}
-                  className="block text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                  className="block text-muted-foreground hover:text-primary transition-colors cursor-pointer py-1 px-2 rounded-md hover:bg-transparent dark:hover:bg-transparent"
                 >
                   {link}
                 </a>

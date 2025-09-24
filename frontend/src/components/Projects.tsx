@@ -16,7 +16,6 @@ export default function Projects() {
       technologies: ["React", "Node.js", "Express", "MongoDB", "WebSockets", "Firebase Authentication"],
       category: "Web Application",
       githubUrl: "https://github.com/Aathishwar/TaskFlow",
-      demoUrl: "#"
     },
     {
       title: "AI Image Enhancer Using Real-ESRGAN",
@@ -24,7 +23,6 @@ export default function Projects() {
       technologies: ["Python", "Real-ESRGAN", "OpenVINO", "Computer Vision", "React", "Tailwind CSS"],
       category: "AI/ML",
       githubUrl: "https://github.com/Aathishwar/Image_Enhancer",
-      demoUrl: "#"
     },
     {
       title: "URL Video Downloader GUI",
@@ -32,7 +30,6 @@ export default function Projects() {
       technologies: ["Python", "yt-dlp", "tkinter", "ttkbootstrap", "FFmpeg"],
       category: "Desktop Application",
       githubUrl: "https://github.com/Aathishwar/Url_Downloader",
-      demoUrl: "#"
     },
     {
       title: "Luggage Detection with YOLO",
@@ -40,7 +37,6 @@ export default function Projects() {
       technologies: ["Python", "YOLO", "OpenCV", "AI/ML"],
       category: "Computer Vision",
       githubUrl: "https://github.com/Aathishwar/Luggage_Detector",
-      demoUrl: "#"
     },
     {
       title: "Car Price Prediction Model",
@@ -48,7 +44,6 @@ export default function Projects() {
       technologies: ["Python", "Machine Learning", "Pandas", "Scikit-learn", "XGBoost"],
       category: "AI/ML",
       githubUrl: "https://github.com/Aathishwar/Car_Price_Prediction",
-      demoUrl: "#"
     },
     {
       title: "E-Commerce & Blogging Website",
@@ -56,7 +51,6 @@ export default function Projects() {
       technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Python", "Firebase"],
       category: "Web Development",
       githubUrl: "https://github.com/Aathishwar/Internship/tree/main/Blogging_Website",
-      demoUrl: "#"
     },
     {
       title: "Encrypted Multi-Client TCP Chat Room",
@@ -64,15 +58,12 @@ export default function Projects() {
       technologies: ["C", "TCP Sockets", "Linux", "XOR Encryption", "Concurrency"],
       category: "Networking",
       githubUrl: "https://github.com/Aathishwar/C_Projects/tree/main/Tcp_Chatroom",
-      demoUrl: "#"
     },
     {
       title: "Raspberry Pi Projects",
       description: "Various IoT and embedded systems projects using Raspberry Pi for automation and hardware interfacing.",
       technologies: ["Raspberry Pi", "Python", "IoT", "Hardware"],
       category: "IoT/Hardware",
-      githubUrl: "https://github.com/Aathishwar/Raspberry-Pi-Projects",
-      demoUrl: "#"
     }
   ];
 
@@ -145,7 +136,7 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <div className="flex gap-2 pt-2">
+                    <div className="flex  gap-2 pt-2">
                       <Button size="sm" variant="outline" className="cursor-pointer" asChild>
                         <a 
                           href={project.githubUrl} 
@@ -154,16 +145,6 @@ export default function Projects() {
                         >
                           <Github className="h-4 w-4 mr-1" />
                           Code
-                        </a>
-                      </Button>
-                      <Button size="sm" variant="outline" className="cursor-pointer" asChild>
-                        <a 
-                          href={project.demoUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          Demo
                         </a>
                       </Button>
                     </div>
