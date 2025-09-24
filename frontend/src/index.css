@@ -81,9 +81,9 @@
 .dark {
   --background: oklch(0.08 0.01 258);
   --foreground: oklch(0.95 0.01 106);
-  --card: oklch(0.12 0.01 258);
+  --card: oklch(0.18 0.01 258);
   --card-foreground: oklch(0.95 0.01 106);
-  --popover: oklch(0.12 0.01 258);
+  --popover: oklch(0.18 0.01 258);
   --popover-foreground: oklch(0.95 0.01 106);
   --primary: oklch(0.70 0.20 35);
   --primary-foreground: oklch(0.08 0.01 258);
@@ -94,7 +94,7 @@
   --accent: oklch(0.20 0.02 258);
   --accent-foreground: oklch(0.95 0.01 106);
   --destructive: oklch(0.68 0.20 22);
-  --border: oklch(0.20 0.01 258);
+  --border: oklch(0.28 0.01 258);
   --input: oklch(0.20 0.01 258);
   --ring: oklch(0.70 0.20 35);
   --chart-1: oklch(0.70 0.20 35);
@@ -199,4 +199,278 @@ html {
 /* Instagram specific color */
 .social-icon:hover .bxl-instagram {
   color: #e4405f;
+}
+
+/* Enhanced card styling for better visibility in dark mode */
+.dark .bg-card {
+  background: oklch(0.18 0.01 258);
+  border-color: oklch(0.28 0.01 258);
+}
+
+/* Optional: Add subtle texture to cards in dark mode */
+.dark [data-slot="card"] {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.02) 0%, transparent 50%),
+    oklch(0.18 0.01 258);
+}
+
+/* Enhanced hover effects for cards in dark mode */
+.dark [data-slot="card"]:hover {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.06) 0%, transparent 50%),
+    oklch(0.22 0.01 258);
+  border-color: oklch(0.35 0.02 258);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 165, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Enhanced hover effects for card titles in dark mode */
+.dark .group:hover [data-slot="card-title"] {
+  color: oklch(0.70 0.20 35);
+}
+
+/* Smooth transitions for all card elements in dark mode */
+.dark [data-slot="card"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark [data-slot="card-title"] {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced hover effects for cards in light mode */
+[data-slot="card"]:hover {
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 165, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Base transitions for all card elements */
+[data-slot="card"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-slot="card-title"] {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Feature Spotlight Effect - Mouse Following Light for Dark Mode */
+.dark .mouse-follower-light {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.28) 15%,
+    rgba(255, 255, 255, 0.20) 30%,
+    rgba(255, 255, 255, 0.14) 45%,
+    rgba(255, 255, 255, 0.08) 60%,
+    rgba(255, 255, 255, 0.04) 75%,
+    transparent 90%
+  );
+  filter: blur(0.5px);
+  mix-blend-mode: overlay;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.dark .mouse-follower-ambient {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.18) 20%,
+    rgba(255, 255, 255, 0.12) 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 65%,
+    rgba(255, 255, 255, 0.02) 80%,
+    transparent 95%
+  );
+  filter: blur(2px);
+  mix-blend-mode: overlay;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Hide mouse follower in light mode */
+.mouse-follower-light,
+.mouse-follower-ambient {
+  opacity: 0;
+}
+
+/* Show Feature Spotlight only in dark mode */
+.dark .mouse-follower-light,
+.dark .mouse-follower-ambient {
+  opacity: 1;
+}
+
+/* Feature Spotlight Enhancement for All Elements */
+.dark * {
+  transition: all 0.2s ease-out;
+}
+
+/* Enhanced spotlight effect for text elements */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.dark p, .dark span, .dark div {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+/* Enhanced spotlight effect for interactive elements */
+.dark button, .dark [role="button"], .dark a {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.dark button:hover, .dark [role="button"]:hover, .dark a:hover {
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.20);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
+/* Enhanced spotlight effect for images and icons */
+.dark img, .dark svg, .dark i {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+}
+
+/* Enhanced spotlight effect for borders and dividers */
+.dark [data-slot="card"], .dark .border, .dark hr {
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.03),
+    0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Stronger spotlight effect on hover for all interactive elements */
+.dark [data-slot="card"]:hover,
+.dark button:hover,
+.dark a:hover,
+.dark .cursor-pointer:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Reduce spotlight intensity specifically over cards */
+.dark [data-slot="card"] {
+  position: relative;
+}
+
+.dark [data-slot="card"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+/* Add subtle pulsing effect to make it more torch-like */
+.dark .mouse-follower-light {
+  animation: feature-spotlight-pulse 4s ease-in-out infinite;
+}
+
+.dark .mouse-follower-ambient {
+  animation: feature-spotlight-ambient 6s ease-in-out infinite;
+}
+
+@keyframes feature-spotlight-pulse {
+  0%, 100% {
+    filter: blur(0.5px);
+    opacity: 1;
+  }
+  50% {
+    filter: blur(1px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes feature-spotlight-ambient {
+  0%, 100% {
+    filter: blur(2px);
+    opacity: 1;
+  }
+  50% {
+    filter: blur(3px);
+    opacity: 0.75;
+  }
+}
+
+/* Feature Spotlight - Global page enhancement */
+.dark {
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%), var(--background);
+}
+
+/* Click Spark Effects - Ensure visibility in both themes */
+canvas[style*="pointer-events: none"] {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+/* Enhanced visibility for click effects in both themes */
+.dark canvas[style*="pointer-events: none"] {
+  filter: brightness(1.3) contrast(1.2);
+}
+
+canvas[style*="pointer-events: none"] {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* Enhanced navigation spotlight effect */
+.dark nav, .dark header {
+  backdrop-filter: blur(10px) brightness(1.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced section dividers with spotlight effect */
+.dark section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.dark section:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Footer specific styling for dark mode */
+.dark footer a {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+.dark footer a:hover {
+  background: transparent !important;
+  backdrop-filter: none !important;
 }

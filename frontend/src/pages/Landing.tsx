@@ -10,6 +10,7 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ClickSpark from "@/components/ui/ClickSpark";
+import FeatureSpotlight from "@/components/ui/FeatureSpotlight";
 import { useSparkColor } from "@/hooks/use-spark-color";
 
 export default function Landing() {
@@ -55,6 +56,9 @@ export default function Landing() {
       extraScale={1}
       easing="ease-out"
     >
+      {/* Feature Spotlight - mouse-following light effect for enhanced dark mode experience */}
+      <FeatureSpotlight />
+      
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

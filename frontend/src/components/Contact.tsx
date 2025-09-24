@@ -111,7 +111,7 @@ This is an automated response. Please do not reply to this email directly.`
     {
       icon: MapPin,
       title: "Location",
-      value: "Tamil Nadu, India",
+      value: "Coimbatore, Tamil Nadu, India",
       href: "https://maps.app.goo.gl/wMoMMmE9uK8wdnzX7"
     }
   ];
