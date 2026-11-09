@@ -1,17 +1,10 @@
 {
-  "name": "aathishs-vly-main",
+  "name": "aathi-portfolio-root",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "cd frontend && pnpm dev",
-    "build": "cd frontend && pnpm build",
-    "lint": "cd frontend && pnpm lint",
-    "format": "cd frontend && pnpm format",
-    "preview": "cd frontend && pnpm preview"
-  },
-  "devDependencies": {
-    "@types/node": "^22.15.29",
-    "typescript": "~5.8.3"
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "lint": "npm --prefix frontend run lint",
+    "preview": "npm --prefix frontend run preview"
   }
 }

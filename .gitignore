@@ -74,6 +74,7 @@ jspm_packages/
 *.njsproj
 *.sln
 *.sw?
+.vite
 
 # OS generated files
 Thumbs.db

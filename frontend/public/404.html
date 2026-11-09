@@ -1,36 +1,36 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Aathishwar Portfolio</title>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with only a query string and hash fragment,
-      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-      // Note: this 404.html file must be at least 512 bytes for it to work
-      // with Internet Explorer (it is currently > 512 bytes)
-
-      // If you're creating a Project Pages site and NOT using a custom domain,
-      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
-      // This way the code will only replace the route part and not the real directory.
-      // The amount of path segments to keep (1 for GitHub Pages, 2 for GitHub Enterprise)
-      var pathSegmentsToKeep = 1;
-
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>404 — page not found</title>
+    <meta name="description" content="This page doesn't exist. Head back to Aathishwar V's portfolio." />
+    <meta property="og:title" content="Page not found — Aathishwar V" />
+    <meta property="og:description" content="This page doesn't exist. Head back to the portfolio." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style>
+      :root { --bg: #0a0c0b; --fg: #e8ece9; --muted: #9ba49f; --accent: #b6f23e; color-scheme: dark; }
+      @media (prefers-color-scheme: light) {
+        :root { --bg: #f5f3ee; --fg: #15140f; --muted: #57544c; --accent: #3f6212; color-scheme: light; }
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--fg); font: 16px/1.6 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; padding: 24px; }
+      main { max-width: 520px; width: 100%; }
+      h1 { font-size: clamp(56px, 14vw, 120px); line-height: 1; margin: 0 0 16px; letter-spacing: -0.04em; }
+      p { margin: 6px 0; color: var(--muted); }
+      .a { color: var(--accent); }
+      a { color: var(--fg); text-underline-offset: 4px; }
+      a:hover { color: var(--accent); }
+      .cta { display: inline-block; margin-top: 28px; padding: 12px 18px; border: 1px solid currentColor; border-radius: 10px; text-decoration: none; }
+    </style>
   </head>
   <body>
+    <main>
+      <h1>404</h1>
+      <p><span class="a">$</span> cd this-page</p>
+      <p><span class="a">›</span> no such file or directory</p>
+      <a class="cta" href="/">cd ~</a>
+    </main>
   </body>
 </html>

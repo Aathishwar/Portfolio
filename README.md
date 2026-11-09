@@ -1,254 +1,40 @@
-# 🌐 Aathishwar V - Modern Portfolio Website
+# Aathishwar V — portfolio
 
+Personal site of Aathishwar V, AI & Security Engineer in Coimbatore, India.
 
-⚡ Welcome to my modern, responsive portfolio website built with **React**, **TypeScript**, and **Tailwind CSS**. This site showcases my skills, projects, education, and passion for technology with a focus on user experience and modern web development practices.
+React 19 · TypeScript · Tailwind CSS 4 · Vite · hosted on Cloudflare Pages.
 
+## Features
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC?logo=tailwind-css)
-![Vite](https://img.shields.io/badge/Vite-fast-646CFF?logo=vite)
-![Framer Motion](https://img.shields.io/badge/FramerMotion-animations-ff69b4?logo=framer)
-![Radix UI](https://img.shields.io/badge/Radix-UI-9cf?logo=react)
+- Dark and light themes with a circular wipe between them; the saved theme loads before first paint.
+- Reveal animations built on one shared `IntersectionObserver`: decrypting headings, redaction-wipe text and pixel-dissolve cards. All of them switch off under `prefers-reduced-motion`.
+- Click sparks drawn on a single canvas whose animation loop sleeps when idle.
+- An interactive pixel padlock in the hero, a filterable project list, a scroll-progress rail and an EmailJS contact form with a honeypot.
+- Strict Content-Security-Policy and security headers (`frontend/public/_headers`), self-hosted fonts, and a static 404 page.
 
----
+## Editing content
 
-## 🔥 Live Preview
+All text lives in [`frontend/src/data/profile.ts`](frontend/src/data/profile.ts): roles, projects, stack, certifications and links.
+The public URL lives in [`frontend/site.config.ts`](frontend/site.config.ts). The build uses it for the canonical link, Open Graph tags, `robots.txt` and `sitemap.xml`.
 
-🚀 [View Portfolio Live](https://aathishwar.github.io/Portfolio/)
-
----
-
-## ✨ Features
-
-### 🎨 **Modern UI/UX**
-
-* **Dark/Light Mode** toggle with smooth transitions using CSS custom properties
-* **Responsive Design** optimized for all devices (mobile, tablet, desktop)
-* **Framer Motion** animations for smooth, professional interactions
-* **Radix UI** components for accessibility and consistency
-
-### 💼 **Portfolio Sections**
-
-* **Hero Section** with animated typing effect and social links
-* **About Me** with detailed personal introduction
-* **Skills** with animated progress bars and categorized skill sets
-* **Certifications** showcase with achievement highlights
-* **Projects** with live demos and GitHub links
-* **Education** timeline with academic achievements
-* **Contact Form** with EmailJS integration for direct communication
-
-### 🛠️ **Technical Features**
-
-* **Single Page Application** with React Router for smooth navigation
-* **TypeScript** for type safety and better development experience
-* **EmailJS Integration** for functional contact form with auto-responses
-* **Toast Notifications** using Sonner for user feedback
-* **Progressive Web App** capabilities
-* **SEO Optimized** with proper meta tags and structure
-
-### 📱 **Interactive Elements**
-
-* Smooth scrolling navigation
-* Active section highlighting
-* Loading states and animations
-* Form validation and error handling
-* Social media integration
-
----
-
-## ♿ Accessibility & ⚡ Performance
-
-* **Accessibility-first**: Built with semantic HTML, ARIA attributes, and Radix UI components.
-* **Performance-focused**: Vite, lazy loading, and code splitting for optimized builds.
-* **SEO Hooks**: Custom meta tags for discoverability and better search ranking.
-
----
-
-## 🛠️ Technologies Used
-
-### Frontend Framework & Language
-
-* ⚛️ **React 18** with hooks and modern patterns
-* 🟦 **TypeScript** for type safety
-* 📱 **React Router** for navigation
-
-### Styling & UI
-
-* 🎨 **Tailwind CSS** for utility-first styling
-* 🎭 **Radix UI** for accessible component primitives
-* ✨ **Framer Motion** for animations
-* 📦 **Shadcn/ui** component library
-
-### Build Tools & Development
-
-* ⚡ **Vite** for fast development and building
-* 📦 **PNPM** for efficient package management
-* 🔧 **ESLint** for code quality
-* 💄 **Prettier** for code formatting
-
-### External Services
-
-* 📧 **EmailJS** for contact form functionality
-* 🔔 **Sonner** for toast notifications
-* 📱 **Boxicons** for consistent iconography
-
----
-
-## 📁 Project Structure
-
-```
-├── frontend/
-│   ├── src/
-│   │   ├── components/        # Reusable UI components
-│   │   │   ├── ui/           # Shadcn/ui components
-│   │   │   ├── About.tsx
-│   │   │   ├── Contact.tsx
-│   │   │   ├── Education.tsx
-│   │   │   ├── Hero.tsx
-│   │   │   ├── Navigation.tsx
-│   │   │   ├── Projects.tsx
-│   │   │   └── Skills.tsx
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── lib/              # Utility functions
-│   │   ├── pages/            # Page components
-│   │   └── types/            # TypeScript type definitions
-│   ├── public/               # Static assets
-│   └── package.json
-├── package.json              # Root package configuration
-└── README.md
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-* Node.js (v18 or higher)
-* PNPM (recommended) or npm
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/Aathishwar/Portfolio.git
-   cd Portfolio
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   pnpm install
-   # or
-   npm install
-   ```
-
-3. **Start development server**
-
-   ```bash
-   pnpm dev
-   # or
-   npm run dev
-   ```
-
-4. **Build for production**
-
-   ```bash
-   pnpm build
-   # or
-   npm run build
-   ```
-
----
-
-## 🌈 Key Features Breakdown
-
-### EmailJS Contact Form
-
-* Functional contact form with validation
-* Auto-response system for user confirmations
-* Direct email delivery to portfolio owner
-* Toast notifications for user feedback
-
-### Skills Visualization
-
-* Animated progress bars with smooth transitions
-* Categorized skill sets (Programming, Technologies, Languages)
-* Real-time percentage indicators
-
-### Project Showcase
-
-* Featured projects with GitHub links
-* Technology stack badges
-* Responsive card layouts
-* External link handling
-
-### Responsive Navigation
-
-* Mobile-friendly hamburger menu
-* Smooth scroll to sections
-* Active section highlighting
-* Logo dropdown with authentication hooks
-
----
-
-## 🧑‍🎓 About Me
-
-I'm **Aathishwar V**, a passionate Computer Science Engineering student specializing in AI & ML. My journey in technology spans web development, artificial intelligence, and cybersecurity. This portfolio represents my evolution from basic web technologies to modern full-stack development.
-
-### Recent Projects
-
-* **TaskFlow**: Multi-user task management system with real-time collaboration
-* **AI Image Enhancer**: Real-ESRGAN powered image enhancement tool
-* **URL Video Downloader**: Feature-rich desktop application with modern GUI
-
----
-
-## 🔧 Development Scripts
+## Develop
 
 ```bash
-# Development
-pnpm dev          # Start development server
-pnpm build        # Build for production
-pnpm preview      # Preview production build
-pnpm lint         # Run ESLint
-pnpm format       # Format code with Prettier
-
-# Deployment
-pnpm deploy       # Deploy to GitHub Pages
+cd frontend
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # type check + production build into frontend/dist
+npm run lint
 ```
 
----
+## Deploy (Cloudflare Pages)
 
-## 📬 Contact Me
+| Setting | Value |
+|---|---|
+| Root directory | `frontend` |
+| Build command | `npm run build` |
+| Output directory | `dist` |
 
-Ready to collaborate or discuss opportunities?
+## Contact
 
-* 📧 **Email**: [aathishwar885@gmail.com](mailto:aathishwar885@gmail.com)
-* 💼 **LinkedIn**: [Aathishwar V](https://www.linkedin.com/in/aathishwar-v/)
-* 🐙 **GitHub**: [Aathishwar](https://github.com/Aathishwar)
-
----
-
-## 📄 License
-
-This project is open-source under the **MIT License**. Feel free to use it as inspiration for your own portfolio!
-
----
-
-## 🌟 Show Your Support
-
-If you found this portfolio inspiring or helpful:
-
-* ⭐ **Star** the repository on GitHub
-* 🍴 **Fork** it for your own use
-* 🚀 **Share** it with others
-* 🤝 **Connect** with me on LinkedIn
-
----
-
-**Built with ❤️ by Aathishwar V**
-
----
+[LinkedIn](https://www.linkedin.com/in/aathishwar-v/) · [GitHub](https://github.com/Aathishwar) · aathishwar885@gmail.com
