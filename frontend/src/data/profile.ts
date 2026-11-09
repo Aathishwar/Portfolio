@@ -117,9 +117,9 @@ export const projects: Project[] = [
   {
     title: "Agent Tunnel",
     summary:
-      "A ~540-line MCP relay that gives two Claude Code sessions on different machines a private channel. A pairing code is the whole auth model, transcripts are always on, and a Cloudflare tunnel is opened automatically for cross-network pairing.",
+      "An MCP relay that lets Claude Code agents in different projects and on different machines work together. Pair once with a code, then connect by name; run many sessions per agent over LAN, servers or the internet, with exactly-once delivery, file transfer and full transcripts.",
     year: "2026",
-    tags: ["Python", "FastMCP", "Cloudflare Tunnel"],
+    tags: ["Python", "FastMCP", "MCP", "Cloudflare Tunnel"],
     groups: ["AI & Agents"],
     status: "private",
   },
